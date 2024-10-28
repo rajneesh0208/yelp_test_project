@@ -62,7 +62,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
-                            height: screenHeight(context) * 0.08,
+                            height: screenHeight(context) * 0.13,
                             width: screenWidth(context),
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             decoration: BoxDecoration(
@@ -72,15 +72,18 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      val.businessesList[item].name,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600),
+                                    SizedBox(
+                                      width: screenWidth(context) * 0.55,
+                                      child: Text(
+                                        val.businessesList[item].name,
+                                        style:  TextStyle(
+                                            color: Colors.white,
+                                            fontSize: screenWidth(context) * 0.05,
+                                            fontWeight: FontWeight.w600),
+                                      ),
                                     ),
                                     val.businessesList[item].isClosed ?
                                     Text("Closed".toUpperCase(),style: const TextStyle(color: Colors.redAccent,fontWeight: FontWeight.bold),):
@@ -97,7 +100,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   emptyColor: Colors.grey,
                                   filledIcon: Icons.star,
                                   halfFilledIcon: Icons.star_half,
-                                  emptyIcon: Icons.star_border,
+                                  emptyIcon: Icons.star,
                                   onChanged: (double rating) {
                                     // Handle the rating change here
                                   },
@@ -105,8 +108,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   interactiveTooltips: true,
                                   customFilledIcon: Icons.star,
                                   customHalfFilledIcon: Icons.star_half,
-                                  customEmptyIcon: Icons.star_border,
-                                  starSize: 15.0,
+                                  customEmptyIcon: Icons.star,
+                                  starSize: screenWidth(context) * 0.03,
                                   animationDuration: const Duration(milliseconds: 300),
                                   animationCurve: Curves.easeInOut,
                                   readOnly: false,

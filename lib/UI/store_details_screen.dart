@@ -154,10 +154,13 @@ class _StoreDetailsState extends State<StoreDetails> {
               SizedBox(
                 width: 15,
               ),
-              Text(
-                details.location.displayAddress.join(', '),
-                style: TextStyle(
-                  color: Colors.brown,
+              SizedBox(
+                width: screenWidth(context) * 0.7,
+                child: Text(
+                  details.location.displayAddress.join(', '),
+                  style: TextStyle(
+                    color: Colors.brown,
+                  ),
                 ),
               ),
             ],
@@ -171,10 +174,13 @@ class _StoreDetailsState extends State<StoreDetails> {
               SizedBox(
                 width: 15,
               ),
-              Text(
-                category(details.categories),
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              SizedBox(
+                width: screenWidth(context) * 0.7,
+                child: Text(
+                  category(details.categories),
+                  style:
+                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),
@@ -201,13 +207,14 @@ class _StoreDetailsState extends State<StoreDetails> {
 
   Widget storeTiming() {
     return Container(
-      height: screenHeight(context) * 0.20,
+      // height: screenHeight(context) * 0.40,
       decoration: BoxDecoration(),
-      margin: EdgeInsets.only(top: 10, left: 15, right: 15,bottom: 15),
+      margin: EdgeInsets.only(top: 10, left: 15, right: 15,bottom: 10),
       child: Flexible(
         child: ListView.builder(
             itemCount: widget.details.businessHours[0].open.length,
             physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
             itemBuilder: (context, i) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
