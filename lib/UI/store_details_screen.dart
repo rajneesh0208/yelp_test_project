@@ -2,7 +2,6 @@ import 'package:animated_rating_stars/animated_rating_stars.dart';
 import 'package:demo_project/Utils/constant.dart';
 import 'package:demo_project/service/model.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../Utils/utils.dart';
 
@@ -28,7 +27,7 @@ class _StoreDetailsState extends State<StoreDetails> {
       appBar: AppBar(
         title: Text(
           widget.details.name,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -36,9 +35,9 @@ class _StoreDetailsState extends State<StoreDetails> {
           child: Container(
         width: screenWidth(context),
         height: screenHeight(context),
-        decoration: BoxDecoration(color: Color(0xffEEF5FF)),
+        decoration: const BoxDecoration(color: Color(0xffEEF5FF)),
         child: ListView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: [
@@ -93,7 +92,7 @@ class _StoreDetailsState extends State<StoreDetails> {
                                       fontWeight: FontWeight.bold)),
                           Text(
                             widget.details.price.toString(),
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           )
                         ],
                       ),
@@ -124,7 +123,7 @@ class _StoreDetailsState extends State<StoreDetails> {
                           ),
                           Text(
                             "Review Count: ${details.reviewCount}",
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           )
                         ],
                       )
@@ -139,8 +138,8 @@ class _StoreDetailsState extends State<StoreDetails> {
 
   storeDetails(Business details) {
     return Container(
-      margin: EdgeInsets.only(top: 15, left: 10, right: 10),
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      margin: const EdgeInsets.only(top: 15, left: 10, right: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.black.withOpacity(0.05)),
@@ -150,28 +149,28 @@ class _StoreDetailsState extends State<StoreDetails> {
         children: [
           Row(
             children: [
-              Icon(Icons.location_on),
-              SizedBox(
+              const Icon(Icons.location_on),
+              const SizedBox(
                 width: 15,
               ),
               SizedBox(
                 width: screenWidth(context) * 0.7,
                 child: Text(
                   details.location.displayAddress.join(', '),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.brown,
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
             children: [
-              Icon(Icons.category),
-              SizedBox(
+              const Icon(Icons.category),
+              const SizedBox(
                 width: 15,
               ),
               SizedBox(
@@ -179,24 +178,24 @@ class _StoreDetailsState extends State<StoreDetails> {
                 child: Text(
                   category(details.categories),
                   style:
-                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                      const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
             children: [
-              Icon(Icons.phone),
-              SizedBox(
+              const Icon(Icons.phone),
+              const SizedBox(
                 width: 15,
               ),
               Text(
                 details.displayPhone,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -208,8 +207,8 @@ class _StoreDetailsState extends State<StoreDetails> {
   Widget storeTiming() {
     return Container(
       // height: screenHeight(context) * 0.40,
-      decoration: BoxDecoration(),
-      margin: EdgeInsets.only(top: 10, left: 15, right: 15,bottom: 10),
+      decoration: const BoxDecoration(),
+      margin: const EdgeInsets.only(top: 10, left: 15, right: 15,bottom: 10),
       child: Flexible(
         child: ListView.builder(
             itemCount: widget.details.businessHours[0].open.length,
@@ -225,17 +224,17 @@ class _StoreDetailsState extends State<StoreDetails> {
                         width: screenWidth(context) * 0.1,
                         child: Text(
                           Constant.days[i],
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black45,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 25,
                     ),
                     Text(
                       "${widget.details.businessHours[0].open[i].start} - ${widget.details.businessHours[0].open[i].end}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 15,
                           fontWeight: FontWeight.bold),
