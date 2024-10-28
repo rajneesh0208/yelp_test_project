@@ -43,7 +43,7 @@ class _StoreDetailsState extends State<StoreDetails> {
           children: [
             storeImage(widget.details),
             storeDetails(widget.details),
-            Expanded(child: storeTiming())
+            storeTiming()
           ],
         ),
       )),
@@ -209,41 +209,39 @@ class _StoreDetailsState extends State<StoreDetails> {
       // height: screenHeight(context) * 0.40,
       decoration: const BoxDecoration(),
       margin: const EdgeInsets.only(top: 10, left: 15, right: 15,bottom: 10),
-      child: Flexible(
-        child: ListView.builder(
-            itemCount: widget.details.businessHours[0].open.length,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (context, i) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                        width: screenWidth(context) * 0.1,
-                        child: Text(
-                          Constant.days[i],
-                          style: const TextStyle(
-                              color: Colors.black45,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
-                        )),
-                    const SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "${widget.details.businessHours[0].open[i].start} - ${widget.details.businessHours[0].open[i].end}",
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-              );
-            }),
-      ),
+      child: ListView.builder(
+          itemCount: widget.details.businessHours[0].open.length,
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, i) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                      width: screenWidth(context) * 0.1,
+                      child: Text(
+                        Constant.days[i],
+                        style: const TextStyle(
+                            color: Colors.black45,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  Text(
+                    "${widget.details.businessHours[0].open[i].start} - ${widget.details.businessHours[0].open[i].end}",
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            );
+          }),
     );
   }
 }
